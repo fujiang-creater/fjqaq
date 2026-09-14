@@ -1,0 +1,27 @@
+#pragma once
+
+#include <stdint.h>
+
+#include "driver/gpio.h"
+
+#define APP_I2S_SCK_GPIO GPIO_NUM_14
+#define APP_I2S_WS_GPIO  GPIO_NUM_15
+#define APP_I2S_SD_GPIO  GPIO_NUM_16
+#define APP_PTT_GPIO     GPIO_NUM_9
+
+/* Common ESP32-S3-N16R8 boards connect the onboard WS2812 LED to GPIO48.
+ * ESP32-S3-DevKitC v1.1 uses GPIO38 instead; change this one macro if needed.
+ */
+#define APP_STATUS_LED_GPIO GPIO_NUM_48
+
+#define APP_AUDIO_SAMPLE_RATE_HZ 16000
+#define APP_OPUS_FRAME_DURATION_MS 60
+#define APP_AUDIO_FRAME_SAMPLES ((APP_AUDIO_SAMPLE_RATE_HZ / 1000) * APP_OPUS_FRAME_DURATION_MS)
+#define APP_AUDIO_FRAME_BYTES (APP_AUDIO_FRAME_SAMPLES * sizeof(int16_t))
+#define APP_I2S_SLOT_COUNT (APP_AUDIO_FRAME_SAMPLES * 2)
+#define APP_I2S_READ_BYTES (APP_I2S_SLOT_COUNT * sizeof(int32_t))
+#define APP_I2S_DMA_FRAME_SAMPLES 480
+#define APP_OPUS_OUTPUT_MAX_BYTES 1500
+#define APP_WS_V3_HEADER_BYTES 4
+#define APP_PTT_DEBOUNCE_MS 20
+#define APP_CAPTURE_TASK_STACK_BYTES (48 * 1024)

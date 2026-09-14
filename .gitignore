@@ -1,0 +1,8 @@
+build/
+managed_components/
+main/wifi_config_private.h
+
+# ESP-IDF local outputs
+sdkconfig.old
+*.pyc
+__pycache__/

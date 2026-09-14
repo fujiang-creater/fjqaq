@@ -1,0 +1,26 @@
+idf_component_register(
+    SRCS
+        "main.c"
+        "wifi_sta.c"
+        "mic_ws.c"
+        "mic_board.c"
+        "status_led.c"
+        "capture_gate.c"
+        "pcm_convert.c"
+        "opus_encoder.c"
+        "ws_audio_protocol.c"
+    INCLUDE_DIRS "."
+    REQUIRES
+        esp_event
+        esp_netif
+        esp_wifi
+        nvs_flash
+        esp_driver_i2s
+        esp_driver_gpio
+        esp_driver_rmt
+        freertos
+        esp_websocket_client
+        esp_audio_codec
+        espressif__cjson
+        led_strip
+)
