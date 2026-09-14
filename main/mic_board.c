@@ -121,7 +121,7 @@ static void capture_task(void *arg)
         }
 
         if (!i2s_enabled) {
-            vTaskDelay(pdMS_TO_TICKS(5));
+            vTaskDelay(1);
             continue;
         }
 
@@ -138,6 +138,7 @@ static void capture_task(void *arg)
                                          &bytes_read,
                                          100);
         if (ret != ESP_OK || bytes_read != sizeof(i2s_input)) {
+            vTaskDelay(1);
             continue;
         }
 
